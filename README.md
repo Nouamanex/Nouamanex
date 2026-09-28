@@ -3,8 +3,6 @@
   <source media="(prefers-color-scheme: light)" srcset="light.svg">
   <img alt="Nouamane's GitHub Profile Header" src="light.svg" width="100%">
 </picture>
-## Hi there 👋
-
 <!--
 **Nouamanex/Nouamanex** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
