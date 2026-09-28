@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
+  <defs>
+    <!-- Background Noise -->
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.05 0" />
+    </filter>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED">
+        <animate attributeName="stop-color" values="#7C3AED;#22D3EE;#10B981;#7C3AED" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#22D3EE">
+        <animate attributeName="stop-color" values="#22D3EE;#10B981;#7C3AED;#22D3EE" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#10B981">
+        <animate attributeName="stop-color" values="#10B981;#7C3AED;#22D3EE;#10B981" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Glass Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Typing Mask -->
+    <clipPath id="typing-mask">
+      <rect x="0" y="0" width="0" height="40">
+        <animate attributeName="width" values="0; 350; 350; 0" dur="8s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <!-- Base Background -->
+  <rect width="1180" height="610" fill="#030712" rx="24" />
+  
+  <!-- Subtle Radial Gradients -->
+  <circle cx="150" cy="150" r="300" fill="#7C3AED" opacity="0.1" filter="blur(80px)">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 50,50; 0,0" dur="10s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1000" cy="500" r="350" fill="#10B981" opacity="0.08" filter="blur(100px)">
+    <animateTransform attributeName="transform" type="translate" values="0,0; -50,-30; 0,0" dur="12s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Noise Overlay -->
+  <rect width="1180" height="610" fill="none" style="pointer-events:none;" filter="url(#noise)" opacity="0.4" rx="24" />
+
+  <!-- LEFT PANEL: ASCII ART (38%) -->
+  <g transform="translate(40, 40)">
+    <!-- Glass Background -->
+    <rect width="400" height="530" fill="#0F172A" fill-opacity="0.6" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" rx="16" />
+    
+    <!-- Floating ASCII Container -->
+    <g font-family="monospace" font-size="12" font-weight="bold" fill="url(#accent)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="6s" repeatCount="indefinite" />
+      
+      <!-- Sequential Reveal Lines -->
+      <text x="40" y="80" opacity="0"><animate attributeName="opacity" values="0;1;1" dur="4s" fill="freeze" /><tspan>      _.-'''''-._      </tspan></text>
+      <text x="40" y="100" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="0.2s" dur="3.8s" fill="freeze" /><tspan>    .'  _     _  '.    </tspan></text>
+      <text x="40" y="120" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="0.4s" dur="3.6s" fill="freeze" /><tspan>   /   (_)   (_)   \   </tspan></text>
+      <text x="40" y="140" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="0.6s" dur="3.4s" fill="freeze" /><tspan>  |  ,           ,  |  </tspan></text>
+      <text x="40" y="160" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="0.8s" dur="3.2s" fill="freeze" /><tspan>  |  \'.       .'/  |  </tspan></text>
+      <text x="40" y="180" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="1.0s" dur="3.0s" fill="freeze" /><tspan>   \  '.`'\"\"\"'`.'  /   </tspan></text>
+      <text x="40" y="200" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="1.2s" dur="2.8s" fill="freeze" /><tspan>    '.  `'---'`  .'    </tspan></text>
+      <text x="40" y="220" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="1.4s" dur="2.6s" fill="freeze" /><tspan>      '-._____.-'      </tspan></text>
+      <text x="40" y="260" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="1.6s" dur="2.4s" fill="freeze" /><tspan>> SYSTEM ALIGNMENT</tspan></text>
+      <text x="40" y="280" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="1.8s" dur="2.2s" fill="freeze" /><tspan>> MEMORY ALLOCATED</tspan></text>
+      <text x="40" y="300" opacity="0"><animate attributeName="opacity" values="0;1;1" begin="2.0s" dur="2.0s" fill="freeze" /><tspan>> ROOT ACCESS GRANTED</tspan></text>
+      
+      <!-- ASCII Blinking Cursor -->
+      <rect x="200" y="290" width="8" height="12" fill="url(#accent)">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+      </rect>
+    </g>
+    
+    <!-- Scanline Effect -->
+    <rect width="400" height="4" fill="rgba(34, 211, 238, 0.2)" opacity="0.5">
+      <animate attributeName="y" values="0; 530; 0" dur="4s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- RIGHT PANEL: TERMINAL (58%) -->
+  <g transform="translate(460, 40)">
+    <!-- Glass Background -->
+    <rect width="680" height="530" fill="#0F172A" fill-opacity="0.8" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" rx="16" />
+    
+    <!-- Terminal Header Dots -->
+    <circle cx="24" cy="24" r="6" fill="#EF4444" />
+    <circle cx="44" cy="24" r="6" fill="#F59E0B" />
+    <circle cx="64" cy="24" r="6" fill="#10B981" />
+
+    <!-- Greeting -->
+    <text x="30" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#F8FAFC">
+      Hi, I'm <tspan fill="url(#accent)">Nouamane</tspan>
+    </text>
+
+    <!-- Animated Typing Text -->
+    <g transform="translate(30, 100)">
+      <text x="0" y="28" font-family="monospace" font-size="20" fill="#94A3B8" clip-path="url(#typing-mask)">
+        > Software Engineer &amp; 1337 Student
+      </text>
+      <!-- Blinking Cursor matching typing path -->
+      <rect x="0" y="10" width="10" height="24" fill="#22D3EE">
+        <animate attributeName="x" values="0; 350; 350; 0" dur="8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Sequential Info Reveal -->
+    <g font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#F8FAFC">
+      <!-- Location -->
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;1;1" begin="1s" dur="7s" fill="freeze" />
+        <text x="30" y="180" font-weight="600" fill="#94A3B8">Location:</text>
+        <text x="160" y="180">Morocco</text>
+      </g>
+      <!-- Education -->
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;1;1" begin="1.5s" dur="6.5s" fill="freeze" />
+        <text x="30" y="215" font-weight="600" fill="#94A3B8">Education:</text>
+        <text x="160" y="215">1337 Coding School</text>
+      </g>
+      <!-- Focus -->
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;1;1" begin="2s" dur="6s" fill="freeze" />
+        <text x="30" y="250" font-weight="600" fill="#94A3B8">Focus:</text>
+        <text x="160" y="250">RedDrop Platform (Spring Boot &amp; Next.js)</text>
+      </g>
+    </g>
+
+    <!-- Skills Section -->
+    <text x="30" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#F8FAFC">
+      Core Arsenal
+    </text>
+
+    <!-- Glowing Pills -->
+    <g font-family="monospace" font-size="14" font-weight="600" fill="#F8FAFC">
+      <!-- Row 1 -->
+      <g transform="translate(30, 340)">
+        <rect width="70" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="35" y="20" text-anchor="middle">C++</text>
+      </g>
+      <g transform="translate(115, 340)">
+        <rect width="110" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="55" y="20" text-anchor="middle">Spring Boot</text>
+      </g>
+      <g transform="translate(240, 340)">
+        <rect width="90" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="45" y="20" text-anchor="middle">Docker</text>
+      </g>
+      <g transform="translate(345, 340)">
+        <rect width="100" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="50" y="20" text-anchor="middle">PostgreSQL</text>
+      </g>
+
+      <!-- Row 2 -->
+      <g transform="translate(30, 385)">
+        <rect width="90" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="45" y="20" text-anchor="middle">Next.js</text>
+      </g>
+      <g transform="translate(135, 385)">
+        <rect width="90" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="45" y="20" text-anchor="middle">Tailwind</text>
+      </g>
+      <g transform="translate(240, 385)">
+        <rect width="70" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="35" y="20" text-anchor="middle">Java</text>
+      </g>
+      <g transform="translate(325, 385)">
+        <rect width="80" height="32" rx="16" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+        <text x="40" y="20" text-anchor="middle">Linux</text>
+      </g>
+    </g>
+
+    <!-- Social / Footer -->
+    <g transform="translate(30, 470)" fill="#94A3B8">
+      <rect width="40" height="40" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+      <!-- GitHub Icon -->
+      <path d="M20 10C14.48 10 10 14.48 10 20C10 24.42 12.87 28.17 16.84 29.5C17.34 29.59 17.5 29.28 17.5 29.01C17.5 28.77 17.49 27.97 17.49 27.12C14.71 27.72 14.12 25.78 14.12 25.78C13.67 24.63 13.04 24.32 13.04 24.32C12.16 23.72 13.11 23.73 13.11 23.73C14.09 23.8 14.59 24.74 14.59 24.74C15.46 26.23 16.87 25.8 17.52 25.55C17.61 24.81 17.92 24.38 18.26 24.13C16.04 23.88 13.71 23.02 13.71 19.48C13.71 18.47 14.07 17.64 14.66 17.01C14.56 16.76 14.25 15.82 14.75 14.54C14.75 14.54 15.53 14.29 17.48 15.61C18.22 15.4 19.01 15.3 19.8 15.3C20.59 15.3 21.38 15.4 22.12 15.61C24.07 14.29 24.85 14.54 24.85 14.54C25.35 15.82 25.04 16.76 24.94 17.01C25.53 17.64 25.89 18.47 25.89 19.48C25.89 23.03 23.55 23.88 21.32 24.12C21.75 24.49 22.13 25.21 22.13 26.33C22.13 27.94 22.12 29.24 22.12 29.01C22.12 29.28 22.3 29.6 22.8 29.5C26.77 28.16 29.65 24.42 29.65 20C29.65 14.48 25.18 10 20 10Z" />
+      
+      <rect x="60" y="0" width="40" height="40" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.1)" />
+      <!-- LinkedIn Icon -->
+      <path d="M72 16H75.5V19H75.55C76.05 18.06 77.29 17.06 79.16 17.06C83.02 17.06 83.75 19.6 83.75 22.92V30H80.08V23.63C80.08 22.11 80.05 20.16 77.96 20.16C75.83 20.16 75.5 21.82 75.5 23.51V30H71.83V16H72ZM65 17.33H68.75V30H65V17.33ZM66.88 12C68.08 12 69.06 12.98 69.06 14.19C69.06 15.39 68.08 16.38 66.88 16.38C65.67 16.38 64.69 15.39 64.69 14.19C64.69 12.98 65.67 12 66.88 12Z" />
+    </g>
+  </g>
+</svg>
